@@ -19,6 +19,10 @@ Voici la liste des différents fichiers proposés dans Colorix :
     <td>Cette commande permet de convertir les couleurs RGB (RVB en francais) en couleur CMYK.</td>
   </tr>	
   <tr> 
+    <td><b>RGB2YIQ.PAS</b></td>
+    <td>Cette commande permet de convertir les couleurs RGB (RVB en francais) en couleur YIQ.</td>
+  </tr>	
+  <tr> 
     <td><b>RGB2YUV.PAS</b></td>
     <td>Cette commande permet de convertir les couleurs RGB (RVB en francais) en couleur YUV.</td>
   </tr>
