@@ -14,7 +14,10 @@ Voici la liste des différents fichiers proposés dans Colorix :
      <td><b>FINDKLR.PAS</b></td>
     <td>Cette commande permet de détecter les couleurs mentionné dans un texte.</td>
   </tr>
-
+  <tr> 
+    <td><b>RGB2YUV.PAS</b></td>
+    <td>Cette commande permet de convertir les couleurs RGB (RVB en francais) en couleur (YUV).</td>
+  </tr>
 </table>
 
 <h2>Compilation</h2>
