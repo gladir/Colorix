@@ -4,12 +4,12 @@
   @abstract(Target: Turbo Pascal, Free Pascal)
 }
 
-Program RGB2YUV;
+Program RGB2CMYK;
 
 Var
  R,G,B:Byte;
  Err:Word;
- Y,U,V:Real;
+ R1,G1,B1,C,M,Y,K:Real;
 
 Function StrToUpper(S:String):String;
 Var
@@ -28,21 +28,32 @@ Begin
  ByteHex2Str:=matrix[(value shr 4) and $0F]+matrix[value and $F];
 End;
 
+Function Max(A,B,C:Real):Real;
+Var
+ T:Real;
+Begin
+ T:=0;
+ If A>T Then T:=A;
+ If B>T Then T:=B;
+ If C>T Then T:=C;
+ Max:=T;
+End;
+
+
 BEGIN
  If(ParamStr(1)='/?')or(ParamStr(1)='--help')or(ParamStr(1)='-h')or
    (ParamStr(1)='/h')or(ParamStr(1)='/H')Then Begin
-  WriteLn('RGB2YUV : Cette commande permet de convertir les couleurs ',
-                      'RGB (RVB) en couleur (YUV).');
+  WriteLn('RGB2CMYK : Cette commande permet de convertir les couleurs ',
+                      'RGB (RVB) en couleur CMYK.');
   WriteLn;
-  WriteLn('Syntaxe : RGB2YUV r g b [/HEX]');
+  WriteLn('Syntaxe : RGB2CMYK r g b');
   WriteLn;
   WriteLn(' r     Ce parametre permet d''indiquer le rouge entre 0 et 255');
   WriteLn(' g     Ce parametre permet d''indiquer le vert entre 0 et 255');
   WriteLn(' b     Ce parametre permet d''indiquer le bleu entre 0 et 255');
-  WriteLn(' /HEX Ce parametre permet de convertir la valeur en hexadecimal');
  End
   Else
- If ParamCount in[3,4]Then Begin
+ If ParamCount=3 Then Begin
   Val(ParamStr(1),R,Err);
   If Err>0Then Begin
    WriteLn('Valeur rouge invalide');
@@ -58,20 +69,20 @@ BEGIN
    WriteLn('Valeur bleu invalide');
    Halt;
   End;
-  Y:=Trunc(0.3*R+0.59*G+0.11*G);
-  U:=Trunc((B-Y)*0.493);
-  V:=Trunc((R-Y)*0.877);
-  If StrToUpper(ParamStr(4))='/HEX'Then Begin
-   WriteLn(ByteHex2Str(Byte(Trunc(Y))),
-                       ByteHex2Str(Byte(Trunc(U))),
-                       ByteHex2Str(Byte(Trunc(V))));
-  End
-   Else
-  Begin
-   WriteLn('Y = ',Y:1:0);
-   WriteLn('U = ',U:1:0);
-   WriteLn('V = ',V:1:0);
-  End;
+  R1:=R/255.0;
+  G1:=G/255.0;
+  B1:=B/255.0;
+  K:=1-Max(R1,G1,B1);
+  C:=(1-R1);
+  If 1-K<>0Then C:=C/(1-K);
+  M:=(1-G1);
+  If 1-K<>0Then M:=M/(1-K);
+  Y:=(1-B1);
+  If 1-K<>0Then Y:=Y/(1-K);
+  WriteLn('C = ',C*100:1:0,'%');
+  WriteLn('M = ',M*100:1:0,'%');
+  WriteLn('Y = ',Y*100:1:0,'%');
+  WriteLn('K = ',K*100:1:0,'%');
  End
   Else
  WriteLn('Nombre de parametre invalide');
