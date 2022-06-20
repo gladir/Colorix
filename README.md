@@ -15,6 +15,10 @@ Voici la liste des différents fichiers proposés dans Colorix :
     <td>Cette commande permet de détecter les couleurs mentionné dans un texte.</td>
   </tr>
   <tr>
+     <td><b>GREYRGB.PAS</b></td>
+     <td>Cette commande permet de retourner les teintes de gris correspondant à la couleur RGB (RVB).</td>
+  </td>
+  <tr>
      <td><b>NEGRGB.PAS</b></td>
      <td>Cette commande permet dte retourner les négations des couleurs RGB (RVB).</td>
   </tr>
