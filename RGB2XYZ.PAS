@@ -4,12 +4,12 @@
   @abstract(Target: Turbo Pascal, Free Pascal)
 }
 
-Program RGB2YIQ;
+Program RGB2XYZ;
 
 Var
  R,G,B:Byte;
  Err:Word;
- Y,I,Q:Real;
+ R1,G1,B1,X,Y,Z:Real;
 
 Function StrToUpper(S:String):String;
 Var
@@ -24,10 +24,10 @@ End;
 BEGIN
  If(ParamStr(1)='/?')or(ParamStr(1)='--help')or(ParamStr(1)='-h')or
    (ParamStr(1)='/h')or(ParamStr(1)='/H')Then Begin
-  WriteLn('RGB2YIQ : Cette commande permet de convertir les couleurs ',
-                'RGB (RVB) en couleur YIQ.');
+  WriteLn('RGB2XYZ : Cette commande permet de convertir les couleurs ',
+                'RGB (RVB) en couleur XYZ.');
   WriteLn;
-  WriteLn('Syntaxe : RGB2YIQ r g b');
+  WriteLn('Syntaxe : RGB2CMYK r g b');
   WriteLn;
   WriteLn(' r     Ce parametre permet d''indiquer le rouge entre 0 et 255');
   WriteLn(' g     Ce parametre permet d''indiquer le vert entre 0 et 255');
@@ -50,13 +50,18 @@ BEGIN
    WriteLn('Valeur bleu invalide');
    Halt;
   End;
-  Y:=((0.299*R)+(0.587*G)+(0.114*B))/256;
-  I:=((0.596*R)-(0.274*G)-(0.322*B))/256;
-  Q:=((0.212*R)-(0.523*G)+(0.311*B))/256;
+  R1:=0.0039215*R; { 0..1 }
+  G1:=0.0039215*G; { 0..1 }
+  B1:=0.0039215*B; { 0..1 }
+  X:=0.431*R1+0.342*G1+0.178*B1;
+  Y:=0.222*R1+0.707*G1+0.071*B1;
+  Z:=0.020*R1+0.130*G1+0.939*B1;
+
+  WriteLn('X = ',X:1:3);
   WriteLn('Y = ',Y:1:3);
-  WriteLn('I = ',I:1:3);
-  WriteLn('Q = ',Q:1:3);
+  WriteLn('Z = ',Z:1:3);
  End
   Else
  WriteLn('Nombre de parametre invalide');
 END.
+
