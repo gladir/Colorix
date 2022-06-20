@@ -46,6 +46,10 @@ Voici la liste des différents fichiers proposés dans Colorix :
     <td><b>RGB2YUV.PAS</b></td>
     <td>Cette commande permet de convertir les couleurs RGB (RVB en francais) en couleur YUV.</td>
   </tr>
+  <tr> 
+    <td><b>XYZ2RGB.PAS</b></td>
+    <td>Cette commande permet de convertir les couleurs XYZ en couleur RGB (RVB en francais).</td>
+  </tr>
 </table>
 
 <h2>Compilation</h2>
