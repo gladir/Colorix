@@ -48,8 +48,11 @@ Voici la liste des différents fichiers proposés dans Colorix :
   </tr>
   <tr> 
     <td><b>XYZ2RGB.PAS</b></td>
-    <td>Cette commande permet de convertir les couleurs XYZ en couleur RGB (RVB en francais).</td>
+    <td>Cette commande permet de convertir les couleurs XYZ en couleur RGB (RVB en français).</td>
   </tr>
+  <tr>
+    <td><b>YIQ2RGB.PAS</b></td>
+    <td>Cette commande permet de convertir les couleurs YIQ en couleur RGB (RVB en français).</td>
 </table>
 
 <h2>Compilation</h2>
