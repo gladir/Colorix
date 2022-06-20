@@ -14,6 +14,10 @@ Voici la liste des différents fichiers proposés dans Colorix :
      <td><b>FINDKLR.PAS</b></td>
     <td>Cette commande permet de détecter les couleurs mentionné dans un texte.</td>
   </tr>
+  <tr>
+     <td><b>NEGRGB.PAS</b></td>
+     <td>Cette commande permet dte retourner les négations des couleurs RGB (RVB).</td>
+  </tr>
   <tr> 
     <td><b>RGB2CMYK.PAS</b></td>
     <td>Cette commande permet de convertir les couleurs RGB (RVB en francais) en couleur CMYK.</td>
