@@ -4,12 +4,12 @@
   @abstract(Target: Turbo Pascal, Free Pascal)
 }
 
-Program XYZ2RGB;
+Program YIQ2RGB;
 
 Var
  R,G,B:Byte;
  Err:Word;
- R1,G1,B1,X,Y,Z:Real;
+ R1,G1,B1,Y,I,Q:Real;
 
 Function StrToUpper(S:String):String;
 Var
@@ -24,35 +24,38 @@ End;
 BEGIN
  If(ParamStr(1)='/?')or(ParamStr(1)='--help')or(ParamStr(1)='-h')or
    (ParamStr(1)='/h')or(ParamStr(1)='/H')Then Begin
-  WriteLn('XYZ2RGB : Cette commande permet de convertir les couleurs ',
-                'XYZ en couleur RGB (RVB).');
+  WriteLn('YIQ2RGB : Cette commande permet de convertir les couleurs ',
+                'YIQ en couleur RGB (RVB).');
   WriteLn;
-  WriteLn('Syntaxe : XYZ2RGB x y z');
+  WriteLn('Syntaxe : YIQ2RGB y i q');
   WriteLn;
-  WriteLn(' x     Ce parametre permet d''indiquer coordonnee reel');
-  WriteLn(' y     Ce parametre permet d''indiquer coordonnee reel');
-  WriteLn(' z     Ce parametre permet d''indiquer coordonnee reel');
+  WriteLn(' y     Ce parametre permet d''indiquer Y');
+  WriteLn(' i     Ce parametre permet d''indiquer I');
+  WriteLn(' q     Ce parametre permet d''indiquer Q');
  End
   Else
  If ParamCount=3 Then Begin
-  Val(ParamStr(1),X,Err);
-  If Err>0Then Begin
-   WriteLn('Valeur X invalide');
-   Halt;
-  End;
-  Val(ParamStr(2),Y,Err);
+  Val(ParamStr(1),Y,Err);
   If Err>0Then Begin
    WriteLn('Valeur Y invalide');
    Halt;
   End;
-  Val(ParamStr(3),Z,Err);
+  Val(ParamStr(2),I,Err);
   If Err>0Then Begin
-   WriteLn('Valeur Z invalide');
+   WriteLn('Valeur I invalide');
    Halt;
   End;
-  R:=Byte(Trunc((3.063*X-1.393*Y-0.476*Z)*255));
-  G:=Byte(Trunc((-0.969*X+1.876*Y+0.042*Z)*255));
-  B:=Byte(Trunc((0.068*X-0.229*Y+1.069*Z)*255));
+  Val(ParamStr(3),Q,Err);
+  If Err>0Then Begin
+   WriteLn('Valeur Q invalide');
+   Halt;
+  End;
+  R1:=(Y+(0.956*I)+(0.621*Q));
+  G1:=(Y-(0.272*I)-(0.647*Q));
+  B1:=(Y-(1.105*I)+(1.702*Q));
+  R:=Byte(Trunc(R1*256));
+  G:=Byte(Trunc(G1*256));
+  B:=Byte(Trunc(B1*256));
   WriteLn('R = ',R);
   WriteLn('G = ',G);
   WriteLn('B = ',B);
@@ -60,5 +63,3 @@ BEGIN
   Else
  WriteLn('Nombre de parametre invalide');
 END.
-
-
