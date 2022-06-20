@@ -11,6 +11,10 @@ Voici la liste des différents fichiers proposés dans Colorix :
     <th>Description</th>
    </tr>
    <tr>
+     <td><b>CMYK2RGB.PAS</b></td>
+     <td>Cette commande permet de convertir les couleurs CMYK en couleurs RGB (RVB).</td>
+   </tr>
+   <tr>
      <td><b>FINDKLR.PAS</b></td>
     <td>Cette commande permet de détecter les couleurs mentionné dans un texte.</td>
   </tr>
