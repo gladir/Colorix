@@ -23,13 +23,13 @@ Voici la liste des différents fichiers proposés dans Colorix :
      <td>Cette commande permet de retourner les teintes de gris correspondant à la couleur RGB (RVB).</td>
   </td>
   <tr>
-     <td><b>HSL2RGB.PAS</b></td>
-     <td>Cette commande permet de convertir les couleurs HSL en couleurs RGB (RVB).</td>
-  </tr>
-  <tr>
      <td><b>HSI2RGB.PAS</b></td>
      <td>Cette commande permet de convertir les couleurs HSI en couleurs RGB (RVB).</td>
   </tr>
+  <tr>
+     <td><b>HSL2RGB.PAS</b></td>
+     <td>Cette commande permet de convertir les couleurs HSL en couleurs RGB (RVB).</td>
+  </tr>  
   <tr>
      <td><b>HSV2RGB.PAS</b></td>
      <td>Cette commande permet de convertir les couleurs HSV en couleurs RGB (RVB).</td>
