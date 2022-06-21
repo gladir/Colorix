@@ -36,7 +36,7 @@ Voici la liste des différents fichiers proposés dans Colorix :
   </tr>
   <tr>
      <td><b>NEGRGB.PAS</b></td>
-     <td>Cette commande permet dte retourner les négations des couleurs RGB (RVB).</td>
+     <td>Cette commande permet de retourner les négations des couleurs RGB (RVB).</td>
   </tr>
   <tr> 
     <td><b>RGB2CMYK.PAS</b></td>
